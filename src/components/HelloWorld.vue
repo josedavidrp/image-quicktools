@@ -67,7 +67,11 @@ export default defineComponent({
           loader.hide()
         })
     }
-
+    const openImage = () => {
+      if (imageUrl.value) {
+        window.open(imageUrl.value, '_blank')
+      }
+    }
     const reset = () => {
       imageUrl.value = null
       imageFile.value = null
@@ -84,6 +88,7 @@ export default defineComponent({
       handleFileChange,
       deleteBg,
       isFinished,
+      openImage,
       reset,
     }
   },
@@ -107,7 +112,7 @@ export default defineComponent({
       <br />
       <button v-if="!isFinished" @click="deleteBg">Eliminar fondo</button>
       <div v-if="isFinished">
-        <button @click="reset">Descargar imagen</button>
+        <button @click="openImage">Descargar imagen</button>
         <button @click="reset">Volver a empezar</button>
       </div>
     </div>
