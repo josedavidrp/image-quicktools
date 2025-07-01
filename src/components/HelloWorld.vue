@@ -68,6 +68,13 @@ export default defineComponent({
         })
     }
 
+    const reset = () => {
+      imageUrl.value = null
+      imageFile.value = null
+      isFinished.value = false
+      if (fileInput.value) fileInput.value.value = ''
+    }
+
     return {
       fileInput,
       loadingContainer,
@@ -77,6 +84,7 @@ export default defineComponent({
       handleFileChange,
       deleteBg,
       isFinished,
+      reset,
     }
   },
 })
@@ -99,8 +107,8 @@ export default defineComponent({
       <br />
       <button v-if="!isFinished" @click="deleteBg">Eliminar fondo</button>
       <div v-if="isFinished">
-        <button @click="((imageUrl = null), (isFinished = false))">Descargar imagen</button>
-        <button @click="((imageUrl = null), (isFinished = false))">Volver a empezar</button>
+        <button @click="reset">Descargar imagen</button>
+        <button @click="reset">Volver a empezar</button>
       </div>
     </div>
   </div>
