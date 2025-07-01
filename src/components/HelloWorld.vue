@@ -7,6 +7,7 @@ export default defineComponent({
   name: 'ImageBackgroundRemover',
   setup() {
     const fileInput = ref<HTMLInputElement | null>(null)
+    const loadingContainer = ref<HTMLInputElement | null>(null)
     const imageFile = ref<File | null>(null)
     const imageUrl = ref<string | null>(null)
     const isFinished = ref(false)
@@ -29,7 +30,7 @@ export default defineComponent({
     const debugLoad = () => {
       const $loading = useLoading({
         isFullPage: false,
-        container: imageContainer.value as HTMLElement,
+        container: loadingContainer,
         backgroundColor: loaderBgColor,
       })
       console.log(imageContainer.value)
@@ -69,6 +70,7 @@ export default defineComponent({
 
     return {
       fileInput,
+      loadingContainer,
       imageFile,
       imageUrl,
       triggerFileInput,
@@ -91,7 +93,7 @@ export default defineComponent({
       style="display: none"
     />
     <div v-if="imageUrl">
-      <div class="vl-parent" ref="imageContainer">
+      <div class="vl-parent" ref="loadingContainer">
         <img :src="imageUrl" alt="Uploaded" style="max-width: 300px" />
       </div>
       <br />
