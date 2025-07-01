@@ -27,19 +27,20 @@ export default defineComponent({
         imageUrl.value = URL.createObjectURL(file)
       }
     }
-    const debugLoad = () => {
-      const $loading = useLoading({
-        isFullPage: false,
-        container: loadingContainer,
-        backgroundColor: loaderBgColor,
-      })
-      console.log(imageContainer.value)
-      const loader = $loading.show()
-      // simulate AJAX
-      setTimeout(() => {
-        //loader.hide()
-      }, 5000)
-    }
+
+    // const debugLoad = () => {
+    //   const $loading = useLoading({
+    //     isFullPage: false,
+    //     container: loadingContainer,
+    //     backgroundColor: loaderBgColor,
+    //   })
+    //   console.log(imageContainer.value)
+    //   const loader = $loading.show()
+    //   // simulate AJAX
+    //   setTimeout(() => {
+    //     //loader.hide()
+    //   }, 5000)
+    // }
     const deleteBg = () => {
       if (!imageFile.value) {
         console.error('No image selected')
@@ -67,11 +68,25 @@ export default defineComponent({
           loader.hide()
         })
     }
-    const openImage = () => {
+    const downloadImage = () => {
+      if (!imageUrl.value || !imageFile.value) return
+      const originalName = imageFile.value.name.replace(/\.[^/.]+$/, '')
+      const filename = `${originalName}-processed.png`
+
+      const link = document.createElement('a')
+      link.href = imageUrl.value
+      link.download = filename
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+    // @ts-ignore
+    const _openImage = () => {
       if (imageUrl.value) {
         window.open(imageUrl.value, '_blank')
       }
     }
+
     const reset = () => {
       imageUrl.value = null
       imageFile.value = null
@@ -88,7 +103,7 @@ export default defineComponent({
       handleFileChange,
       deleteBg,
       isFinished,
-      openImage,
+      downloadImage,
       reset,
     }
   },
@@ -112,7 +127,7 @@ export default defineComponent({
       <br />
       <button v-if="!isFinished" @click="deleteBg">Eliminar fondo</button>
       <div v-if="isFinished">
-        <button @click="openImage">Descargar imagen</button>
+        <button @click="downloadImage">Descargar imagen</button>
         <button @click="reset">Volver a empezar</button>
       </div>
     </div>
