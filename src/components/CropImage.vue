@@ -114,7 +114,7 @@ export default defineComponent({
       style="display: none"
     />
     <div v-if="imageUrl">
-      <div class="vl-parent" ref="loadingContainer">
+      <div class="vl-parent" ref="imageContainer">
         <img :src="imageUrl" alt="Uploaded" style="max-width: 300px" />
       </div>
       <br />

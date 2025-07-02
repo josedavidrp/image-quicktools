@@ -1,5 +1,4 @@
 <script lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
 import TopNavbar from './reuse/TopNavbar.vue'
 import Card from 'primevue/card'
 import { defineComponent } from 'vue'

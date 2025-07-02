@@ -1,5 +1,4 @@
 <script lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
 import Card from 'primevue/card'
 import { defineComponent } from 'vue'
 
@@ -17,7 +16,7 @@ export default defineComponent({
         route: 'CropImage',
       },
       {
-        title: 'Elminar fondo',
+        title: 'Eliminar fondo',
         icon: 'pi pi-arrows-alt',
         bgColor: '#2196F3',
         route: 'RemoveBackground',
