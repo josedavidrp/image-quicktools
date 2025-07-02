@@ -7,7 +7,7 @@ import router from './router'
 //Prime imports
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
-import Material from '@primeuix/themes/material';
+import Material from '@primeuix/themes/lara';
 
 //Prime components
 import Button from 'primevue/button'
@@ -21,5 +21,4 @@ app.use(PrimeVue, {
     }
  });
 app.component('Button', Button)
-
 app.mount('#app')
