@@ -10,9 +10,15 @@
   },
   "dependencies": {
     "@imgly/background-removal": "^1.6.0",
+    "@primeuix/themes": "^1.2.0",
     "onnxruntime-web": "^1.21.0-dev.20250206-d981b153d3",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primeng": "^20.0.0-rc.1",
+    "primevue": "^4.3.6",
     "vue": "^3.5.17",
-    "vue-loading-overlay": "^6.0.6"
+    "vue-loading-overlay": "^6.0.6",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.0",
