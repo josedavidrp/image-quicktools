@@ -21,7 +21,9 @@ export default defineComponent({
 <template>
   <header class="flex justify-content-between align-items-center px-4 py-2 surface-100 shadow-2">
     <!-- Left: App name -->
-    <div class="font-bold text-xl">Image Quicktools</div>
+    <RouterLink :to="{ name: 'Home' }">
+      <div class="font-bold text-xl">Image Quicktools</div>
+    </RouterLink>
 
     <!-- Center: Placeholder buttons -->
     <div class="flex gap-2">

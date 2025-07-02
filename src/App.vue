@@ -1,11 +1,22 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
 import TopNavbar from './reuse/TopNavbar.vue'
+import Card from 'primevue/card'
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'ImageQuicktools',
+  components: {
+    TopNavbar,
+    Card,
+  },
+  setup() {},
+})
 </script>
 
 <template>
   <TopNavbar />
-  <HelloWorld />
+  <RouterView />
   <p>
     Creado por
     <a href="https://www.linkedin.com/in/jdavid-rodriguez/" target="_blank">Jose David Rodriguez</a
