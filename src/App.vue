@@ -16,16 +16,19 @@ export default defineComponent({
 <template>
   <TopNavbar />
   <RouterView />
-  <p>
-    Creado por
-    <a href="https://www.linkedin.com/in/jdavid-rodriguez/" target="_blank">Jose David Rodriguez</a
-    >, utilizando
-    <a
-      href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.npmjs.com/package/%40imgly/background-removal&ved=2ahUKEwiKlYq44Z6OAxX0BNsEHUNAMAgQFnoECAoQAQ&usg=AOvVaw1cee2nQK6f8u_UWeLMh72s"
-      target="_blank"
-      >@imgly/background-removal</a
-    >
-  </p>
+  <div class="flex justify-content-center">
+    <p class="absolute bottom-0">
+      Creado por
+      <a href="https://www.linkedin.com/in/jdavid-rodriguez/" target="_blank"
+        >Jose David Rodriguez</a
+      >, utilizando
+      <a
+        href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.npmjs.com/package/%40imgly/background-removal&ved=2ahUKEwiKlYq44Z6OAxX0BNsEHUNAMAgQFnoECAoQAQ&usg=AOvVaw1cee2nQK6f8u_UWeLMh72s"
+        target="_blank"
+        >@imgly/background-removal</a
+      >
+    </p>
+  </div>
 </template>
 
 <style scoped>
