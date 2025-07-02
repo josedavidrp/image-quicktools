@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import Home from '@/components/Home.vue'
 const CropImage = () => import(/* webpackChunkName: "CropImage" */ '@/components/CropImage.vue')
 
 const RemoveBackground = () =>
@@ -16,6 +16,11 @@ const router = createRouter({
   },
   routes: [
     {
+      path: '/',
+      name: 'Home',
+      component: Home,
+    },
+    {
       path: '/crop-image',
       name: 'CropImage',
       component: CropImage,
@@ -26,10 +31,6 @@ const router = createRouter({
       name: 'RemoveBackground',
       component: RemoveBackground,
       alias: '/eliminar-fondo',
-    },
-    {
-      path: '/about',
-      redirect: { name: 'about' },
     },
     // {
     //   path: '/404/:resource',
