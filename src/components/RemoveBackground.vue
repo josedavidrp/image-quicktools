@@ -132,4 +132,5 @@ export default defineComponent({
       </div>
     </div>
   </div>
+  <RouterLink :to="{ name: 'Home' }">Atras</RouterLink>
 </template>
