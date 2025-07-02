@@ -1,8 +1,10 @@
 <script lang="ts">
 import { defineComponent, ref, useTemplateRef } from 'vue'
+
 import { removeBackground } from '@imgly/background-removal'
 import { useLoading } from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
+
 export default defineComponent({
   name: 'ImageBackgroundRemover',
   setup() {
@@ -10,6 +12,7 @@ export default defineComponent({
     const loadingContainer = ref<HTMLInputElement | null>(null)
     const imageFile = ref<File | null>(null)
     const imageUrl = ref<string | null>(null)
+    const inProgress = ref(false)
     const isFinished = ref(false)
     const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 
@@ -28,25 +31,12 @@ export default defineComponent({
       }
     }
 
-    // const debugLoad = () => {
-    //   const $loading = useLoading({
-    //     isFullPage: false,
-    //     container: loadingContainer,
-    //     backgroundColor: loaderBgColor,
-    //   })
-    //   console.log(imageContainer.value)
-    //   const loader = $loading.show()
-    //   // simulate AJAX
-    //   setTimeout(() => {
-    //     //loader.hide()
-    //   }, 5000)
-    // }
     const deleteBg = () => {
       if (!imageFile.value) {
         console.error('No image selected')
         return
       }
-
+      inProgress.value = true
       const $loading = useLoading({
         isFullPage: false,
         container: imageContainer.value as HTMLElement,
@@ -60,11 +50,13 @@ export default defineComponent({
           console.log('Background removed image:', url)
           imageUrl.value = url
           isFinished.value = true
+          inProgress.value = false
           loader.hide()
         })
         .catch((err) => {
           console.error('Error removing background:', err)
           isFinished.value = true
+          inProgress.value = false
           loader.hide()
         })
     }
@@ -103,6 +95,7 @@ export default defineComponent({
       handleFileChange,
       deleteBg,
       isFinished,
+      inProgress,
       downloadImage,
       reset,
     }
@@ -112,7 +105,7 @@ export default defineComponent({
 
 <template>
   <div class="card">
-    <button v-if="!imageUrl" @click="triggerFileInput">Subir imagen</button>
+    <Button v-if="!imageUrl" @click="triggerFileInput" label="Subir imagen" icon="pi pi-upload" />
     <input
       type="file"
       accept="image/*"
@@ -125,10 +118,17 @@ export default defineComponent({
         <img :src="imageUrl" alt="Uploaded" style="max-width: 300px" />
       </div>
       <br />
-      <button v-if="!isFinished" @click="deleteBg">Eliminar fondo</button>
-      <div v-if="isFinished">
-        <button @click="downloadImage">Descargar imagen</button>
-        <button @click="reset">Volver a empezar</button>
+      <Button
+        v-if="!isFinished"
+        type="button"
+        label="Eliminar fondo"
+        icon="pi pi-search"
+        :loading="inProgress"
+        @click="deleteBg"
+      />
+      <div v-if="isFinished" class="flex gap-3 justify-content-center">
+        <Button @click="downloadImage" label="Descargar imagen" icon="pi pi-download" />
+        <Button @click="reset" label="Volver a empezar" icon="pi pi-undo" />
       </div>
     </div>
   </div>
