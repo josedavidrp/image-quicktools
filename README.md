@@ -1,5 +1,36 @@
-# Vue 3 + TypeScript + Vite
+# Image QuickTools
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+**Image QuickTools** es un mini proyecto desarrollado para aprender y experimentar con **Vue 3**, **TypeScript**, **PrimeVue** y **Primeflex**. La app permite eliminar el fondo de imágenes utilizando librerías especializadas para procesamiento de imágenes.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+---
+
+## Tecnologías usadas
+
+- Vue 3
+- TypeScript
+- PrimeVue (componentes UI)
+- Primeflex (estilos y layout flexbox)
+- Librerías para eliminación de fondo de imágenes
+
+---
+
+## Qué hace
+
+Una pequeña aplicación frontend para cargar imágenes y eliminar su fondo de forma sencilla, con una interfaz limpia y responsiva.
+
+---
+
+## Demo
+
+Puedes probar la demo desplegada aquí:  
+[https://image-quicktools.onrender.com](https://image-quicktools.onrender.com)
+
+---
+
+## Cómo usar / instalar localmente
+
+1. Clona el repositorio
+
+```bash
+gh repo clone josedavidrp/image-quicktools
+```
