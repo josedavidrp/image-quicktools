@@ -132,10 +132,4 @@ export default defineComponent({
       </div>
     </div>
   </div>
-
-  <p>
-    Creado por
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">Jose David Rodriguez</a
-    >, utilizando <a href="" target="_blank">@imgly/background-removal</a>
-  </p>
 </template>

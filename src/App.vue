@@ -1,14 +1,21 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import TopNavbar from './reuse/TopNavbar.vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-  </div>
-  <HelloWorld/>
+  <TopNavbar />
+  <HelloWorld />
+  <p>
+    Creado por
+    <a href="https://www.linkedin.com/in/jdavid-rodriguez/" target="_blank">Jose David Rodriguez</a
+    >, utilizando
+    <a
+      href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.npmjs.com/package/%40imgly/background-removal&ved=2ahUKEwiKlYq44Z6OAxX0BNsEHUNAMAgQFnoECAoQAQ&usg=AOvVaw1cee2nQK6f8u_UWeLMh72s"
+      target="_blank"
+      >@imgly/background-removal</a
+    >
+  </p>
 </template>
 
 <style scoped>
