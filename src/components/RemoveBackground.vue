@@ -2,11 +2,15 @@
 import { defineComponent, ref, useTemplateRef } from 'vue'
 
 import { removeBackground } from '@imgly/background-removal'
+import { Skeleton } from 'primevue'
 import { useLoading } from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
 
 export default defineComponent({
   name: 'ImageBackgroundRemover',
+  components: {
+    Skeleton,
+  },
   setup() {
     const fileInput = ref<HTMLInputElement | null>(null)
     const loadingContainer = ref<HTMLInputElement | null>(null)
@@ -122,15 +126,22 @@ export default defineComponent({
         v-if="!isFinished"
         type="button"
         label="Eliminar fondo"
-        icon="pi pi-search"
+        icon="pi pi-trash"
+        severity="success"
         :loading="inProgress"
         @click="deleteBg"
       />
       <div v-if="isFinished" class="flex gap-3 justify-content-center">
-        <Button @click="downloadImage" label="Descargar imagen" icon="pi pi-download" />
-        <Button @click="reset" label="Volver a empezar" icon="pi pi-undo" />
+        <Button
+          @click="downloadImage"
+          label="Descargar imagen"
+          icon="pi pi-download"
+          severity="success"
+        />
+        <Button @click="reset" label="Volver a empezar" icon="pi pi-undo" severity="danger" />
       </div>
     </div>
+    <div v-else class="flex justify-content-center p-5"><Skeleton size="10rem"></Skeleton></div>
   </div>
-  <RouterLink :to="{ name: 'Home' }">Atras</RouterLink>
+  <RouterLink :to="{ name: 'Home' }"><Button label="Atras" severity="contrast" /></RouterLink>
 </template>
