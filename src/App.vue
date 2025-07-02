@@ -17,7 +17,7 @@ export default defineComponent({
   <TopNavbar />
   <RouterView />
   <div class="flex justify-content-center">
-    <p class="absolute bottom-0">
+    <p class="">
       Creado por
       <a href="https://www.linkedin.com/in/jdavid-rodriguez/" target="_blank"
         >Jose David Rodriguez</a
