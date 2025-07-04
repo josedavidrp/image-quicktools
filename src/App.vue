@@ -14,34 +14,42 @@ export default defineComponent({
 </script>
 
 <template>
-  <TopNavbar />
-  <RouterView />
-  <div class="flex justify-content-center">
-    <p class="">
-      Creado por
-      <a href="https://www.linkedin.com/in/jdavid-rodriguez/" target="_blank"
-        >Jose David Rodriguez</a
-      >, utilizando
-      <a
-        href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.npmjs.com/package/%40imgly/background-removal&ved=2ahUKEwiKlYq44Z6OAxX0BNsEHUNAMAgQFnoECAoQAQ&usg=AOvVaw1cee2nQK6f8u_UWeLMh72s"
-        target="_blank"
-        >@imgly/background-removal</a
-      >
-    </p>
+  <div class="layout">
+    <TopNavbar />
+
+    <main class="router-view">
+      <RouterView />
+    </main>
+
+    <footer class="footer">
+      <p>
+        Creado por
+        <a href="https://www.linkedin.com/in/jdavid-rodriguez/" target="_blank">
+          Jose David Rodriguez </a
+        >, utilizando
+        <a href="https://www.npmjs.com/package/@imgly/background-removal" target="_blank">
+          @imgly/background-removal
+        </a>
+      </p>
+    </footer>
   </div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.router-view {
+  flex: 1;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--surface-100); /* opcional si usas PrimeVue */
+  font-size: 0.85rem;
 }
 </style>
